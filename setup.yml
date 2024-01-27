@@ -1,0 +1,7 @@
+---
+
+- name: Run roles to build app
+  become: true
+  hosts: myapp
+  roles:
+    - simple-docker-app

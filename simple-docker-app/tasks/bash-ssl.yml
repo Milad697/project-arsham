@@ -1,0 +1,11 @@
+---
+# Copy and Run bash file
+
+- name: Copy certbot.sh file
+  copy:
+    src: ../files/certbot.sh
+    dest: /home/certbot.sh
+    mode: '0755'
+
+- name: Run certbot.sh script
+  shell: /home/certbot.sh

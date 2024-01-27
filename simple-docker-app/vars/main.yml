@@ -1,0 +1,6 @@
+---
+# vars file for simple docker file
+
+domain_name: app.webinir.com
+backend_url: tweet_app
+

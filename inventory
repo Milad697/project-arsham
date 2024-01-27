@@ -1,0 +1,6 @@
+[project-server]
+myapp ansible_host=3.133.95.119
+
+[localhost]
+localhost ansible_connection=local
+

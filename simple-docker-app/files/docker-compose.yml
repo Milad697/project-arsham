@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  nginx_reverse_proxy:
+    image: nginx:latest
+    container_name: nginx_reverse_proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/app.webinir.com.conf:/etc/nginx/conf.d/app.webinir.com.conf
+      - /etc/letsencrypt/:/cert
+    depends_on:
+      - tweet_app
+
+  tweet_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: linux_tweet_app
+    restart: unless-stopped
+    expose:
+      - "80"
+      - "443"
+

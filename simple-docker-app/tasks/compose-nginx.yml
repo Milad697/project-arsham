@@ -1,0 +1,18 @@
+---
+# Copy docker compose file
+
+- name: Copy docker-compose file
+  copy:
+    src: ../files/docker-compose.yml
+    dest: /home/simple-docker-app/
+
+- name: Create nginx directory
+  file:
+    path: /home/simple-docker-app/nginx
+    state: directory
+    mode: '0755'
+
+- name: Configure nginx.conf
+  template:
+    src: nginx.conf.j2
+    dest: /home/simple-docker-app/nginx/app.webinir.com.conf

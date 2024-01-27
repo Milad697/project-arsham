@@ -1,0 +1,15 @@
+---
+# Clone repo and Change directory and next Edit Docker file
+
+- name: Clone the repository
+  git:
+    repo: https://github.com/amirpaakdaman/simple-docker-app.git
+    dest: /home/simple-docker-app
+    version: main
+    force: yes
+
+- name: Edit Dockerfile - Append 'l' to end of line 4
+  lineinfile:
+    path: /home/simple-docker-app/Dockerfile
+    regexp: '^COPY .* /usr/share/nginx/'
+    line: 'COPY linux.png /usr/share/nginx/html'

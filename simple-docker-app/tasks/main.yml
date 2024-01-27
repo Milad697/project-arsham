@@ -1,0 +1,9 @@
+---
+# tasks for automating build docker file
+- name: Clone git repo and change into directory
+  import_tasks: repo.yml
+- name: Copy  compose and nginx in destination
+  import_tasks: compose-nginx.yml
+- name: Run bash script file generate ssl
+  import_tasks: bash-ssl.yml
+
